@@ -1,6 +1,7 @@
 import ProductItem from "@/components/products/ProductItem";
+import React from "react";
 
-const ProductsList = ({ products }: { products: Product[] }) => {
+const ProductsList: React.FC<{ products: Product[] }> = ({ products }) => {
   const productItems = products.map((product) => {
     return <ProductItem key={product.id} product={product} />;
   });

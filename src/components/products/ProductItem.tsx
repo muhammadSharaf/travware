@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const ProductItem = ({ product }: { product: Product }) => {
+const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
   return (
     <li className={"flex"}>
       <div className={"bg-white sborder rounded-2xl overflow-hidden"}>
