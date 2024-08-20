@@ -5,7 +5,7 @@ import ButtonMain from "@/components/elements/buttons/ButtonMain";
 const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
   return (
     <li className={"flex flex-1 shadow-sm"}>
-      <div className={"flex flex-1 flex-col bg-white rounded-2xl"}>
+      <div className={"flex flex-1 flex-col bg-white rounded-xl"}>
         <div className={"h-[200px] relative m-4"}>
           <Image
             src={product.image}

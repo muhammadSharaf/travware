@@ -9,9 +9,7 @@ const ButtonMain: React.FC<Props> = ({ title, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={
-        "w-full py-2 font-bold bg-[#fd7e14] hover:bg-[#e36c0a] text-white rounded-md"
-      }
+      className={`w-full py-2 font-bold bg-primary hover:bg-primaryDark text-white rounded-md`}
     >
       {title}
     </button>
