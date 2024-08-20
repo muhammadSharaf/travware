@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Earbuds",
+    "description": "High-quality wireless earbuds with noise-cancellation and long battery life.",
+    "image": "https://m.media-amazon.com/images/I/41DkedEmQFL._AC_UF894,1000_QL80_.jpg",
+    "price": 59.99
+  },
+  {
+    "id": 2,
+    "name": "Smartphone Stand",
+    "description": "Adjustable smartphone stand with a sleek design and anti-slip base.",
+    "image": "https://m.media-amazon.com/images/I/61dpRC+gl3L._AC_UF894,1000_QL80_.jpg",
+    "price": 19.99
+  },
+  {
+    "id": 3,
+    "name": "Bluetooth Speaker",
+    "description": "Portable Bluetooth speaker with powerful sound and waterproof design.",
+    "image": "https://m.media-amazon.com/images/I/61q5eBJlqnL._AC_UF894,1000_QL80_.jpg",
+    "price": 89.99
+  },
+  {
+    "id": 4,
+    "name": "Fitness Tracker",
+    "description": "Waterproof fitness tracker with heart rate monitoring and GPS.",
+    "image": "https://m.media-amazon.com/images/I/61YwaovfYFL.jpg",
+    "price": 129.99
+  },
+  {
+    "id": 5,
+    "name": "Laptop Sleeve",
+    "description": "Durable and stylish laptop sleeve made of high-quality materials.",
+    "image": "https://m.media-amazon.com/images/I/51lfIPl0GhL._AC_.jpg",
+    "price": 34.99
+  },
+  {
+    "id": 6,
+    "name": "Gaming Mouse",
+    "description": "Ergonomic gaming mouse with customizable buttons and RGB lighting.",
+    "image": "https://m.media-amazon.com/images/I/61RYwHoeHjL._AC_UF894,1000_QL80_.jpg",
+    "price": 49.99
+  },
+  {
+    "id": 7,
+    "name": "USB-C Hub",
+    "description": "Multi-port USB-C hub with HDMI, USB 3.0, and Ethernet ports.",
+    "image": "https://m.media-amazon.com/images/I/61U5nfjrT0L.jpg",
+    "price": 39.99
+  },
+  {
+    "id": 8,
+    "name": "4K Monitor",
+    "description": "Ultra HD 4K monitor with a slim bezel and vibrant color display.",
+    "image": "https://m.media-amazon.com/images/I/81FFCjMtVZL.jpg",
+    "price": 299.99
+  },
+  {
+    "id": 9,
+    "name": "Wireless Charger",
+    "description": "Fast wireless charger compatible with all Qi-enabled devices.",
+    "image": "https://m.media-amazon.com/images/I/61oOH5q0RuL._AC_UF894,1000_QL80_.jpg",
+    "price": 24.99
+  },
+  {
+    "id": 10,
+    "name": "Mechanical Keyboard",
+    "description": "High-performance mechanical keyboard with customizable RGB lighting.",
+    "image": "https://m.media-amazon.com/images/I/713dZx2HcKL._AC_UF1000,1000_QL80_.jpg",
+    "price": 109.99
+  }
+]
