@@ -13,7 +13,7 @@ const Home = async () => {
         >
           <input
             className={
-              "flex w-1/2 p-4 text-gray-500 leading-tight rounded-full"
+              "flex w-1/2 p-4 text-gray-500 leading-tight rounded-full shadow-sm"
             }
             type="search"
             placeholder="Search"
