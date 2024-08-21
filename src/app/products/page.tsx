@@ -3,6 +3,7 @@
 import ProductsList from "@/components/products/ProductsList";
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import NavBar from "@/components/nav/NavBar";
+import Header from "@/components/elements/headers/Header";
 
 const Products = () => {
   const productsData = useRef<Product[]>();
@@ -51,6 +52,10 @@ const Products = () => {
           />
         </div>
       </NavBar>
+
+      <div className={"flex w-full items-start"}>
+        <Header title={"Filters"} />
+      </div>
 
       <ProductsList products={products} isLoading={!productsData.current} />
     </>

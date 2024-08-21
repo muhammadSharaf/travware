@@ -11,9 +11,9 @@ const ProductsList: React.FC<{ products: Product[]; isLoading: boolean }> = ({
   });
 
   if (isLoading) {
-    return <Header title={"Fetching products..."} />;
+    return <Header title={"Fetching products..."} style={"mt-48"} />;
   } else if (products.length === 0) {
-    return <Header title={"No products found."} />;
+    return <Header title={"No products found."} style={"mt-48"} />;
   }
 
   return <ul className={"w-full grid grid-cols-4 gap-4"}>{productItems}</ul>;
