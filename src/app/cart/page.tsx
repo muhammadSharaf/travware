@@ -53,7 +53,7 @@ const Page = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar productsCount={products.length} />
 
       {renderProducts}
       {products.length > 0 && (

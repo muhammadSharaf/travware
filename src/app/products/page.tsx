@@ -7,14 +7,19 @@ import FiltersContainer from "@/components/filters/FiltersContainer";
 import { usePathname, useSearchParams } from "next/navigation";
 import FilterType from "@/enums/FilterType";
 import SortType from "@/enums/SortType";
-import { useAppDispatch } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import CartProduct from "@/types/CartProduct.type";
-import { addToCart } from "@/lib/slices/cartSlice";
+import { addToCart, removeProduct } from "@/lib/slices/cartSlice";
+import { RootState } from "@/lib/store";
 
 const Products = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const dispatch = useAppDispatch();
+
+  const { products: cartProducts } = useAppSelector(
+    (state: RootState) => state.cart,
+  );
 
   const productsData = useRef<Product[]>();
   const [products, setProducts] = useState<Product[]>([]);
@@ -51,6 +56,10 @@ const Products = () => {
     dispatch(addToCart(product));
   }, []);
 
+  const onRemoveFromCart = useCallback((product: CartProduct) => {
+    dispatch(removeProduct(product));
+  }, []);
+
   useEffect(() => {
     (async () => {
       const res = await fetch(
@@ -83,7 +92,7 @@ const Products = () => {
 
   return (
     <>
-      <NavBar>
+      <NavBar productsCount={cartProducts.length}>
         <div className={"w-full p-0 md:pe-2"}>
           <input
             className={"flex w-full p-4 rounded-xl shadow-sm"}
@@ -104,8 +113,10 @@ const Products = () => {
 
       <ProductsList
         products={products}
+        cartProducts={cartProducts}
         isLoading={!productsData.current}
         onAddToCart={(product: CartProduct) => onAddToCart(product)}
+        onRemoveFromCart={(product: CartProduct) => onRemoveFromCart(product)}
         searchQuery={searchQuery.current}
       />
     </>

@@ -5,15 +5,19 @@ import CartProduct from "@/types/CartProduct.type";
 
 interface Props {
   products: Product[];
+  cartProducts: Product[];
   isLoading: boolean;
   onAddToCart: (product: CartProduct) => void;
+  onRemoveFromCart: (product: CartProduct) => void;
   searchQuery?: string;
 }
 
 const ProductsList: React.FC<Props> = ({
   products,
+  cartProducts,
   isLoading,
   onAddToCart,
+  onRemoveFromCart,
   searchQuery,
 }) => {
   const productItems = products.map((product) => {
@@ -22,7 +26,9 @@ const ProductsList: React.FC<Props> = ({
         key={product.id}
         product={product}
         onAddToCart={onAddToCart}
+        onRemoveFromCart={onRemoveFromCart}
         searchQuery={searchQuery}
+        inCart={cartProducts.findIndex((p) => p.id === product.id) > -1}
       />
     );
   });

@@ -50,7 +50,7 @@ const ProductCart: React.FC<Props> = ({
             <ButtonMain
               title={"-"}
               style={
-                "w-auto !text-primary p-4 bg-transparent border border-primary"
+                "w-auto !text-primary hover:!text-white p-4 bg-transparent border border-primary"
               }
               onClick={() => onDecrease(product)}
             />

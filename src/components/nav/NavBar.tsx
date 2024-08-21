@@ -2,16 +2,13 @@
 
 import React from "react";
 import ButtonNavigation from "@/components/elements/buttons/ButtonNavigation";
-import { useAppSelector } from "@/lib/hooks";
-import { RootState } from "@/lib/store";
 
 interface Props {
+  productsCount: number;
   children?: React.ReactNode;
 }
 
-const NavBar: React.FC<Props> = ({ children }) => {
-  const { products } = useAppSelector((state: RootState) => state.cart);
-
+const NavBar: React.FC<Props> = ({ children, productsCount }) => {
   return (
     <nav
       className={
@@ -21,7 +18,7 @@ const NavBar: React.FC<Props> = ({ children }) => {
       <div className={"flex-1 w-full md:w-auto "}>{children}</div>
       <div className={"flex flex-1 justify-end"}>
         <ButtonNavigation title={"Products"} goTo={"/products"} />
-        <ButtonNavigation title={`Cart (${products.length})`} goTo={"/cart"} />
+        <ButtonNavigation title={`Cart (${productsCount})`} goTo={"/cart"} />
       </div>
     </nav>
   );

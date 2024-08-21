@@ -15,7 +15,9 @@ import CartProduct from "@/types/CartProduct.type";
 interface Props {
   product: Product;
   onAddToCart: (product: CartProduct) => void;
+  onRemoveFromCart: (product: CartProduct) => void;
   searchQuery?: string;
+  inCart: boolean;
 }
 
 const highlightText = (text: string, query?: string) => {
@@ -31,7 +33,9 @@ const highlightText = (text: string, query?: string) => {
 const ProductItem: React.FC<Props> = ({
   product,
   onAddToCart,
+  onRemoveFromCart,
   searchQuery,
+  inCart,
 }) => {
   const images = product.images.map((image, i) => {
     return (
@@ -76,8 +80,17 @@ const ProductItem: React.FC<Props> = ({
           <div>
             <h1 className={"text-xl font-bold mb-2"}>{`$${product.price}`}</h1>
             <ButtonMain
-              title={"Add to Cart"}
-              onClick={() => onAddToCart(product as CartProduct)}
+              title={inCart ? "Remove from Cart" : "Add to Cart"}
+              onClick={() =>
+                inCart
+                  ? onRemoveFromCart(product as CartProduct)
+                  : onAddToCart(product as CartProduct)
+              }
+              style={
+                inCart
+                  ? "border border-primary bg-transparent !text-primary hover:!text-white"
+                  : ""
+              }
             />
           </div>
         </div>
