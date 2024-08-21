@@ -2,10 +2,12 @@ import ProductItem from "@/components/products/ProductItem";
 import React from "react";
 import Header from "@/components/elements/headers/Header";
 
-const ProductsList: React.FC<{ products: Product[]; isLoading: boolean }> = ({
-  products,
-  isLoading,
-}) => {
+interface Props {
+  products: Product[];
+  isLoading: boolean;
+}
+
+const ProductsList: React.FC<Props> = ({ products, isLoading }) => {
   const productItems = products.map((product) => {
     return <ProductItem key={product.id} product={product} />;
   });
