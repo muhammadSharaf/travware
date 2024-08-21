@@ -63,8 +63,10 @@ const FiltersContainer: React.FC<Props> = ({
 
   return (
     <div className="w-full mb-12">
-      <div className={"flex flex-row w-full gap-4 items-start mb-4"}>
-        <div className="flex flex-1 gap-4 flex-row">
+      <div
+        className={"flex flex-col md:flex-row w-full gap-4 items-start mb-4"}
+      >
+        <div className="flex flex-1 w-full gap-4 flex-row">
           <DropDown
             title={"Sort by Price"}
             htmlFor={FilterType.PRICE}
@@ -110,7 +112,11 @@ const FiltersContainer: React.FC<Props> = ({
           />
         </div>
       </div>
-      <ButtonMain title={"Apply Filters"} onClick={onApply} />
+      <ButtonMain
+        title={"Apply Filters"}
+        onClick={onApply}
+        style={"w-auto p-4"}
+      />
     </div>
   );
 };

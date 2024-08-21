@@ -23,10 +23,10 @@ const ProductCart: React.FC<Props> = ({
   return (
     <li
       className={
-        "flex h-60 flex-row w-full bg-white rounded-xl shadow-sm mb-4 p-4"
+        "flex md:h-60 flex-col md:flex-row w-full bg-white rounded-xl shadow-sm mb-4 p-4"
       }
     >
-      <div className={"flex w-80 relative"}>
+      <div className={"flex h-[200px] my-4 md:w-80 md:my-0 relative"}>
         <Image
           src={product.images[0]}
           layout={"fill"}

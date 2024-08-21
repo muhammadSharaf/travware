@@ -84,9 +84,9 @@ const Products = () => {
   return (
     <>
       <NavBar>
-        <div className={"w-1/2 pe-2"}>
+        <div className={"w-full p-0 md:pe-2"}>
           <input
-            className={"flex w-full p-4 text-gray-500 rounded-xl shadow-sm"}
+            className={"flex w-full p-4 rounded-xl shadow-sm"}
             type="search"
             onChange={onSearch}
             placeholder="Search"

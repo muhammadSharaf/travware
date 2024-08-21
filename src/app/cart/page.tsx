@@ -58,10 +58,12 @@ const Page = () => {
       {renderProducts}
       {products.length > 0 && (
         <div
-          className={"flex flex-row w-full items-center justify-between mt-12"}
+          className={
+            "flex flex-col md:flex-row w-full items-center justify-between mt-12"
+          }
         >
           <h1
-            className={"flex flex-1 text-2xl"}
+            className={"flex flex-1 text-2xl mb-4 md:mb-0"}
           >{`Total Price: $${totalPrice.toFixed(2)}`}</h1>
           <ButtonMain
             title={"Checkout"}

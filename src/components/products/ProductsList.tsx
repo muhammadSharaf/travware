@@ -33,7 +33,13 @@ const ProductsList: React.FC<Props> = ({
     return <Header title={"No products found."} style={"mt-48"} />;
   }
 
-  return <ul className={"w-full grid grid-cols-4 gap-4"}>{productItems}</ul>;
+  return (
+    <ul
+      className={"w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"}
+    >
+      {productItems}
+    </ul>
+  );
 };
 
 export default ProductsList;
