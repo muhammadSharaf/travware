@@ -1,6 +1,5 @@
 "use client";
 
-import ButtonNavigation from "@/components/elements/buttons/ButtonNavigation";
 import ProductsList from "@/components/products/ProductsList";
 import {
   ChangeEvent,
@@ -10,6 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
+import NavBar from "@/components/nav/NavBar";
 
 const Products = () => {
   const productsData = useRef<Product[]>();
@@ -45,32 +45,24 @@ const Products = () => {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between px-24 py-12">
-      <div className="flex flex-1 flex-col z-10 w-full max-w-5xl items-center font-mono text-sm lg:flex">
-        <nav
-          className={"flex flex-row w-full items-center justify-between mb-12"}
-        >
-          <div className={"w-1/2 pe-2"}>
-            <input
-              className={
-                "flex w-full p-4 text-gray-500 leading-tight rounded-xl shadow-sm"
-              }
-              type="search"
-              onChange={onSearch}
-              placeholder="Search"
-            />
-          </div>
-          <div>
-            <ButtonNavigation title={"Products"} goTo={"/products"} />
-            <ButtonNavigation title={"Cart"} goTo={"/cart"} />
-          </div>
-        </nav>
+    <>
+      <NavBar>
+        <div className={"w-1/2 pe-2"}>
+          <input
+            className={
+              "flex w-full p-4 text-gray-500 leading-tight rounded-xl shadow-sm"
+            }
+            type="search"
+            onChange={onSearch}
+            placeholder="Search"
+          />
+        </div>
+      </NavBar>
 
-        <Suspense fallback={null}>
-          <ProductsList products={products} />
-        </Suspense>
-      </div>
-    </main>
+      <Suspense fallback={null}>
+        <ProductsList products={products} />
+      </Suspense>
+    </>
   );
 };
 
