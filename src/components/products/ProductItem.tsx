@@ -49,8 +49,6 @@ const ProductItem: React.FC<Props> = ({
     );
   });
 
-  console.log("searchQuery", searchQuery);
-
   return (
     <li className={"flex flex-1 flex-col bg-white rounded-xl shadow-sm"}>
       <div className={"flex flex-1 flex-col"}>

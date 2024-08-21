@@ -48,7 +48,6 @@ const Products = () => {
   }, []);
 
   const onAddToCart = useCallback((product: CartProduct) => {
-    console.log("Clicked", product);
     dispatch(addToCart(product));
   }, []);
 

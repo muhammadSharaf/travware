@@ -7,12 +7,42 @@ const cartSlice = createSlice({
   initialState: cartState,
   reducers: {
     addToCart(state, action: PayloadAction<CartProduct>) {
-      state.products.push(action.payload);
-    },
-    removeFromCart(state, action) {
-      state.products = state.products.filter(
-        (item: CartProduct) => item.id !== action.payload,
+      const productIdx = state.products.findIndex(
+        (product) => product.id === action.payload.id,
       );
+
+      const product: CartProduct = { ...action.payload };
+
+      if (productIdx > -1) {
+        state.products[productIdx].count += 1;
+      } else {
+        state.products.push(product);
+      }
+    },
+    decreaseProduct(state, action: PayloadAction<number>) {
+      const productIdx = state.products.findIndex(
+        (product) => product.id === action.payload,
+      );
+
+      const product: CartProduct = state.products[productIdx];
+
+      if (product.count > 1) {
+        state.products[productIdx].count -= 1;
+      }
+    },
+    removeProduct(state, action: PayloadAction<number>) {
+      const productIdx = state.products.findIndex(
+        (product) => product.id === action.payload,
+      );
+
+      const product: CartProduct = state.products[productIdx];
+
+      return {
+        ...state,
+        products: state.products.filter(
+          (product) => product.id !== action.payload,
+        ),
+      };
     },
     checkout(state) {
       state.products = [];
@@ -26,8 +56,25 @@ export const addToCart = (product: CartProduct) => {
       product.count = 1;
     }
 
-    console.log("Adding", product);
     dispatch(cartActions.addToCart(product));
+  };
+};
+
+export const decreaseProduct = (product: CartProduct) => {
+  return (dispatch: Dispatch) => {
+    dispatch(cartActions.decreaseProduct(product.id));
+  };
+};
+
+export const removeProduct = (product: CartProduct) => {
+  return (dispatch: Dispatch) => {
+    dispatch(cartActions.removeProduct(product.id));
+  };
+};
+
+export const checkout = () => {
+  return (dispatch: Dispatch) => {
+    dispatch(cartActions.checkout());
   };
 };
 
