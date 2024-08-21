@@ -7,15 +7,15 @@ const cartSlice = createSlice({
   initialState: cartState,
   reducers: {
     addToCart(state, action: PayloadAction<CartProduct>) {
-      state.items.push(action.payload);
+      state.products.push(action.payload);
     },
     removeFromCart(state, action) {
-      state.items = state.items.filter(
+      state.products = state.products.filter(
         (item: CartProduct) => item.id !== action.payload,
       );
     },
     checkout(state) {
-      state.items = [];
+      state.products = [];
     },
   },
 });
@@ -26,6 +26,7 @@ export const addToCart = (product: CartProduct) => {
       product.count = 1;
     }
 
+    console.log("Adding", product);
     dispatch(cartActions.addToCart(product));
   };
 };

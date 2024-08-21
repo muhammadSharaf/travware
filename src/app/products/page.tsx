@@ -7,25 +7,25 @@ import FiltersContainer from "@/components/filters/FiltersContainer";
 import { usePathname, useSearchParams } from "next/navigation";
 import FilterType from "@/enums/FilterType";
 import SortType from "@/enums/SortType";
-import { useAppDispatch } from "@/store/hooks";
+import { useAppDispatch } from "@/lib/hooks";
 import CartProduct from "@/types/CartProduct.type";
-import { addToCart } from "@/store/slices/cartSlice";
+import { addToCart } from "@/lib/slices/cartSlice";
 
 const Products = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   const productsData = useRef<Product[]>();
   const [products, setProducts] = useState<Product[]>([]);
+  const searchQuery = useRef<string>("");
 
   const sortPrice = searchParams.get(FilterType.PRICE) as SortType;
   const sortName = searchParams.get(FilterType.NAME) as SortType;
   const minPrice =
-    (parseInt(searchParams.get(FilterType.PRICE_MIN) as string) as number) ?? 0;
+    parseInt(searchParams.get(FilterType.PRICE_MIN) as string) || 0;
   const maxPrice =
-    (parseInt(searchParams.get(FilterType.PRICE_MAX) as string) as number) ??
-    300;
+    parseInt(searchParams.get(FilterType.PRICE_MAX) as string) || 300;
 
   const onSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     let { value } = event.target;
@@ -35,8 +35,11 @@ const Products = () => {
       if (!productsData.current) return [];
 
       if (!value || value === "") {
+        searchQuery.current = "";
         return productsData.current ?? [];
       }
+
+      searchQuery.current = value;
 
       return productsData.current.filter((product: Product): boolean => {
         return product.name.toLowerCase().includes(value.toLowerCase());
@@ -45,7 +48,8 @@ const Products = () => {
   }, []);
 
   const onAddToCart = useCallback((product: CartProduct) => {
-    // dispatch(addToCart(product));
+    console.log("Clicked", product);
+    dispatch(addToCart(product));
   }, []);
 
   useEffect(() => {
@@ -102,7 +106,8 @@ const Products = () => {
       <ProductsList
         products={products}
         isLoading={!productsData.current}
-        onAddToCart={(product: CartProduct) => {}}
+        onAddToCart={(product: CartProduct) => onAddToCart(product)}
+        searchQuery={searchQuery.current}
       />
     </>
   );

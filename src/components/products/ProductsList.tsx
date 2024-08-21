@@ -7,12 +7,14 @@ interface Props {
   products: Product[];
   isLoading: boolean;
   onAddToCart: (product: CartProduct) => void;
+  searchQuery?: string;
 }
 
 const ProductsList: React.FC<Props> = ({
   products,
   isLoading,
   onAddToCart,
+  searchQuery,
 }) => {
   const productItems = products.map((product) => {
     return (
@@ -20,6 +22,7 @@ const ProductsList: React.FC<Props> = ({
         key={product.id}
         product={product}
         onAddToCart={onAddToCart}
+        searchQuery={searchQuery}
       />
     );
   });

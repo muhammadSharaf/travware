@@ -15,9 +15,24 @@ import CartProduct from "@/types/CartProduct.type";
 interface Props {
   product: Product;
   onAddToCart: (product: CartProduct) => void;
+  searchQuery?: string;
 }
 
-const ProductItem: React.FC<Props> = ({ product, onAddToCart }) => {
+const highlightText = (text: string, query?: string) => {
+  if (!query) return text;
+
+  const regex = new RegExp(`(${query})`, "gi");
+  return text.replace(
+    regex,
+    '<span style="background-color: #FD7E1488"}>$1</span>',
+  );
+};
+
+const ProductItem: React.FC<Props> = ({
+  product,
+  onAddToCart,
+  searchQuery,
+}) => {
   const images = product.images.map((image, i) => {
     return (
       <SwiperSlide key={i} className={"pb-8"}>
@@ -34,6 +49,8 @@ const ProductItem: React.FC<Props> = ({ product, onAddToCart }) => {
     );
   });
 
+  console.log("searchQuery", searchQuery);
+
   return (
     <li className={"flex flex-1 flex-col bg-white rounded-xl shadow-sm"}>
       <div className={"flex flex-1 flex-col"}>
@@ -49,7 +66,12 @@ const ProductItem: React.FC<Props> = ({ product, onAddToCart }) => {
 
         <div className={"flex flex-1 flex-col justify-between p-4"}>
           <div className={"mb-4"}>
-            <h1 className={"text-xl font-bold"}>{product.name}</h1>
+            <h1
+              className={"text-xl font-bold mb-2"}
+              dangerouslySetInnerHTML={{
+                __html: highlightText(product.name, searchQuery),
+              }}
+            />
             <p>{product.description}</p>
           </div>
 
