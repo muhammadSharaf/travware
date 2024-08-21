@@ -13,6 +13,7 @@ import {
   decreaseProduct,
   removeProduct,
 } from "@/lib/slices/cartSlice";
+import Header from "@/components/elements/headers/Header";
 
 const Page = () => {
   const dispatch = useAppDispatch();
@@ -56,7 +57,7 @@ const Page = () => {
       <NavBar productsCount={products.length} />
 
       {renderProducts}
-      {products.length > 0 && (
+      {products.length > 0 ? (
         <div
           className={
             "flex flex-col md:flex-row w-full items-center justify-between mt-12"
@@ -71,6 +72,8 @@ const Page = () => {
             onClick={onCheckout}
           />
         </div>
+      ) : (
+        <Header title={"Cart is empty."} style={"mt-48"} />
       )}
     </>
   );
