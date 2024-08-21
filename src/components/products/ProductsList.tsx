@@ -1,15 +1,27 @@
 import ProductItem from "@/components/products/ProductItem";
 import React from "react";
 import Header from "@/components/elements/headers/Header";
+import CartProduct from "@/types/CartProduct.type";
 
 interface Props {
   products: Product[];
   isLoading: boolean;
+  onAddToCart: (product: CartProduct) => void;
 }
 
-const ProductsList: React.FC<Props> = ({ products, isLoading }) => {
+const ProductsList: React.FC<Props> = ({
+  products,
+  isLoading,
+  onAddToCart,
+}) => {
   const productItems = products.map((product) => {
-    return <ProductItem key={product.id} product={product} />;
+    return (
+      <ProductItem
+        key={product.id}
+        product={product}
+        onAddToCart={onAddToCart}
+      />
+    );
   });
 
   if (isLoading) {

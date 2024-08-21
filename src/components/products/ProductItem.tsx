@@ -10,8 +10,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import CartProduct from "@/types/CartProduct.type";
 
-const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
+interface Props {
+  product: Product;
+  onAddToCart: (product: CartProduct) => void;
+}
+
+const ProductItem: React.FC<Props> = ({ product, onAddToCart }) => {
   const images = product.images.map((image, i) => {
     return (
       <SwiperSlide key={i} className={"pb-8"}>
@@ -49,7 +55,10 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
 
           <div>
             <h1 className={"text-xl font-bold mb-2"}>{`$${product.price}`}</h1>
-            <ButtonMain title={"Add to Cart"} />
+            <ButtonMain
+              title={"Add to Cart"}
+              onClick={() => onAddToCart(product as CartProduct)}
+            />
           </div>
         </div>
       </div>

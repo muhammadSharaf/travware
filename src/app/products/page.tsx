@@ -7,10 +7,14 @@ import FiltersContainer from "@/components/filters/FiltersContainer";
 import { usePathname, useSearchParams } from "next/navigation";
 import FilterType from "@/enums/FilterType";
 import SortType from "@/enums/SortType";
+import { useAppDispatch } from "@/store/hooks";
+import CartProduct from "@/types/CartProduct.type";
+import { addToCart } from "@/store/slices/cartSlice";
 
 const Products = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  // const dispatch = useAppDispatch();
 
   const productsData = useRef<Product[]>();
   const [products, setProducts] = useState<Product[]>([]);
@@ -22,8 +26,6 @@ const Products = () => {
   const maxPrice =
     (parseInt(searchParams.get(FilterType.PRICE_MAX) as string) as number) ??
     300;
-
-  console.log("maxPrice", maxPrice);
 
   const onSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     let { value } = event.target;
@@ -40,6 +42,10 @@ const Products = () => {
         return product.name.toLowerCase().includes(value.toLowerCase());
       });
     });
+  }, []);
+
+  const onAddToCart = useCallback((product: CartProduct) => {
+    // dispatch(addToCart(product));
   }, []);
 
   useEffect(() => {
@@ -93,7 +99,11 @@ const Products = () => {
         maxPriceParam={maxPrice}
       />
 
-      <ProductsList products={products} isLoading={!productsData.current} />
+      <ProductsList
+        products={products}
+        isLoading={!productsData.current}
+        onAddToCart={(product: CartProduct) => {}}
+      />
     </>
   );
 };
