@@ -12,10 +12,6 @@ interface Props {
 const ButtonNavigation: React.FC<Props> = ({ title, goTo }) => {
   const pathname = usePathname();
 
-  console.log(pathname);
-  console.log(goTo);
-  console.log(pathname === goTo);
-
   return (
     <Link
       href={goTo}
