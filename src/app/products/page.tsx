@@ -1,14 +1,7 @@
 "use client";
 
 import ProductsList from "@/components/products/ProductsList";
-import {
-  ChangeEvent,
-  Suspense,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import NavBar from "@/components/nav/NavBar";
 
 const Products = () => {
@@ -59,9 +52,7 @@ const Products = () => {
         </div>
       </NavBar>
 
-      <Suspense fallback={null}>
-        <ProductsList products={products} />
-      </Suspense>
+      <ProductsList products={products} isLoading={!productsData.current} />
     </>
   );
 };
