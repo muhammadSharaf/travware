@@ -121,7 +121,7 @@ interface CartProduct extends Product {
     6. eslint
 
 ## Sample
-![Sample 1](https://github.com/muhammadSharaf/travware/blob/master/products.png)
-![Sample 2](https://github.com/muhammadSharaf/travware/blob/master/filters.png)
-![Sample 3](https://github.com/muhammadSharaf/travware/blob/master/products-cart.png)
-![Sample 4](https://github.com/muhammadSharaf/travware/blob/master/search.png)
+![Sample 1](https://github.com/muhammadSharaf/travware/blob/main/products.png)
+![Sample 2](https://github.com/muhammadSharaf/travware/blob/main/filters.png)
+![Sample 3](https://github.com/muhammadSharaf/travware/blob/main/products-cart.png)
+![Sample 4](https://github.com/muhammadSharaf/travware/blob/main/search.png)
