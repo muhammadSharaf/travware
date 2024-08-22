@@ -121,6 +121,8 @@ interface CartProduct extends Product {
     6. eslint
 
 ## Sample
+Products page (mobile view)
+![Sample 6](https://github.com/muhammadSharaf/travware/blob/main/products-mobile.png)
 Products page
 ![Sample 1](https://github.com/muhammadSharaf/travware/blob/main/products.png)
 Applying filters (sort price DESC / min price / max price)
@@ -131,7 +133,5 @@ Search by product name (with highlighted results)
 ![Sample 4](https://github.com/muhammadSharaf/travware/blob/main/search.png)
 Cart page
 ![Sample 5](https://github.com/muhammadSharaf/travware/blob/main/cart.png)
-Products page (mobile view)
-![Sample 6](https://github.com/muhammadSharaf/travware/blob/main/products-mobile.png)
 Cart page (mobile view)
 ![Sample 7](https://github.com/muhammadSharaf/travware/blob/main/cart-mobile.png)
