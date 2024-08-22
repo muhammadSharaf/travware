@@ -130,8 +130,8 @@ Add products to cart
 Search by product name (with highlighted results)
 ![Sample 4](https://github.com/muhammadSharaf/travware/blob/main/search.png)
 Cart page
-![Sample 4](https://github.com/muhammadSharaf/travware/blob/main/cart.png)
+![Sample 5](https://github.com/muhammadSharaf/travware/blob/main/cart.png)
 Products page (mobile view)
-![Sample 4](https://github.com/muhammadSharaf/travware/blob/main/products-mobile.png)
+![Sample 6](https://github.com/muhammadSharaf/travware/blob/main/products-mobile.png)
 Cart page (mobile view)
-![Sample 4](https://github.com/muhammadSharaf/travware/blob/main/cart-mobile.png)
+![Sample 7](https://github.com/muhammadSharaf/travware/blob/main/cart-mobile.png)
