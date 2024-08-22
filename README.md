@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Table of Content
 
-## Getting Started
+1. [Introduction](#introduction)
+2. [Installation](#installation)
+3. [Project Structure](#project-structure)
+4. [Interface](#interface)
+5. [Features](#features)
+6. [Future Updates](#future-updates)
+7. [Dependencies](#dependencies)
+8. [Sample](#sample)
 
-First, run the development server:
+## Introduction
+
+A product listing application
+
+## Installation
 
 ```bash
+git clone https://github.com/muhammadSharaf/travware.git
+
+npm install
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```
+web application url: http://localhost:3000/
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+Web Application (next-app)
+│── public
+|   └── products.json (fake data)
+|
+└── src 
+|   └── app (main app router)
+|   │   └── cart
+|   │   │   │   page.tsx
+|   │   │
+|   │   └── products
+|   │       │   page.tsx
+|   │
+|   └── components
+|   │   └── elements
+|   │   │   └── buttons
+|   │   │   └── headers
+|   │   │   └── input
+|   │   │   
+|   │   └── products   
+|   │   │   └── ProductCart
+|   │   │   └── ProductItem
+|   │   │   └── ProductsList
+|   │   │   
+|   │   └── filters
+|   │   └── nav
+|   |
+|   └── enums
+|   │   └── FilterType
+|   │   └── SortType
+|   |
+|   └── type
+|   │   └── CartProduct.type
+|   │   └── Filters.type
+|   │   └── Product.type
+|   
+|   └── lib (redux store)
+|   │   └── slices
+|   │   └── states
+|   │   └── hooks
+|   │   └── store
 
-## Learn More
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Interface
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+interface Product {
+  id: number;
+  name: string;
+  description: string;
+  images: string[];
+  price: number;
+}
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+interface CartProduct extends Product {
+  count: number;
+}
+```
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Responsive design
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- /products (List all product)
+  - Realtime search (with highlighted results)
+  - Filter using (min - max) prices
+  - Sort using product name or price
+  - Multiple product thumbnails
+- /cart (List user cart products)
+  - Add products to cart
+  - Increase product quantity
+  - Decrease product quantity
+  - Remove product from cart
+  - Checkout cart
+
+## Future Updates
+
+- Add redux persist for Cart
+- Add jest testing
+
+## Dependencies
+
+- Web application
+    1. Next
+    2. React
+    3. Tailwindcss
+    4. Redux Toolkit
+    5. swiper
+    6. eslint
+
+## Sample
+![Sample 1](https://github.com/muhammadSharaf/travware/blob/master/samples/products.png)
+![Sample 2](https://github.com/muhammadSharaf/travware/blob/master/samples/filters.png)
+![Sample 3](https://github.com/muhammadSharaf/travware/blob/master/samples/products-cart.png)
+![Sample 4](https://github.com/muhammadSharaf/travware/blob/master/samples/search.png)
