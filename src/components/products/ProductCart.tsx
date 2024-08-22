@@ -63,7 +63,7 @@ const ProductCart: React.FC<Props> = ({
           </div>
           <ButtonMain
             title={"Remove"}
-            style={"w-24 p-4"}
+            style={"w-20 p-4"}
             onClick={() => onRemove(product)}
           />
         </div>
